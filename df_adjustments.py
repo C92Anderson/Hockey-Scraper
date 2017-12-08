@@ -115,7 +115,6 @@ def transform_data(data):
     warnings.simplefilter("ignore")
     
     from sqlalchemy import create_engine
-    engine = create_engine('mysql+mysqlconnector://cole92anderson:cprice31!@css-db.cnqvzrgc2pnj.us-east-1.rds.amazonaws.com:3306/nhl_all')
     
     pbp_df = data
 
