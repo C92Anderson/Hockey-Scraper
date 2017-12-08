@@ -305,6 +305,7 @@ def scrape_date_range(from_date, to_date, if_scrape_shifts):
     """
     from sqlalchemy import create_engine
 
+    engine = create_engine('mysql+mysqlconnector://cole92anderson:cprice31!@css-db.cnqvzrgc2pnj.us-east-1.rds.amazonaws.com:3306/nhl_all')
 
     try:
         if time.strptime(to_date, "%Y-%m-%d") < time.strptime(from_date, "%Y-%m-%d"):

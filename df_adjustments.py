@@ -115,6 +115,7 @@ def transform_data(data):
     warnings.simplefilter("ignore")
     
     from sqlalchemy import create_engine
+    engine = create_engine('mysql+mysqlconnector://cole92anderson:cprice31!@css-db.cnqvzrgc2pnj.us-east-1.rds.amazonaws.com:3306/nhl_all')
     
     pbp_df = data
 
@@ -540,10 +541,5 @@ def xR_Model_Scoring(model_data, data, szn):
 
     scored_data.to_csv("scored_data" + str(szn) + ".csv", index=False)
     
-    import s3fs
-    bytes_to_write = scored_data.to_csv(index=False).encode()
-    fs = s3fs.S3FileSystem(key='AKIAIJBUAO5KNV3X4GAQ', secret='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')
-    with fs.open('s3://shots-all/scored_data' + str(szn) + '.csv', 'wb') as f:
-        f.write(bytes_to_write)
-        
+       
     return coefs.T
